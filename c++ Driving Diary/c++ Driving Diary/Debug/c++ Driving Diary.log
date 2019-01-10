@@ -1,0 +1,4 @@
+﻿  c++ Driving Diary.cpp
+d:\koulu\c++ projects\c++ driving diary\c++ driving diary\c++ driving diary.cpp(276): warning C4551: function call missing argument list
+d:\koulu\c++ projects\c++ driving diary\c++ driving diary\c++ driving diary.cpp(236): warning C4715: 'startDrive': not all control paths return a value
+  c++ Driving Diary.vcxproj -> D:\Koulu\c++ projects\c++ Driving Diary\Debug\c++ Driving Diary.exe
