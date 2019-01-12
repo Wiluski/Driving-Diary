@@ -16,17 +16,16 @@ void Gas::setGas()
 		cout << "1. Yes, 2. No" << endl;
 		cin >> optionSG;
 		if (optionSG == 1) {
-			do {
-				cout << "Give in litres xx.xxl" << endl;
-				cout << "How much gas did you buy?: " << endl;
-				cin >> litre;
-				if (cin.get() != 'l') {
-					cout << "\n expected 'l'";
-				}
-			} while (cin.get() != 'l');
-			litre = litre - ((getODistance->getDistance() / 100) * consumption);
+			cout << "Give in litres xx.xxl" << endl;
+			cout << "How much gas did you buy?: " << endl;
+			cin >> litre;
+			if (cin.get() != 'l') {
+				cout << "\n expected 'l'";
+				optionSG = 0;
+			}
+		litre = litre - ((getODistance->getDistance() / 100) * consumption);
 		}
-	} while (optionSG != 1 || optionSG != 2);
+	} while (optionSG != 1 && optionSG != 2);
 }
 
 void Gas::setConsumption()
@@ -36,20 +35,20 @@ void Gas::setConsumption()
 	cout << "else 9l/100km will be used" << endl;
 	do {
 		cout << "1. Yes 2. No" << endl;
+		cin >> optionSCK;
 		if (optionSCK == 1) {
-			do {
-				cout << "give in litres per 100km, XX.XXl" << endl;
-				cin >> consumption;
-				if (cin.get() != 'l') {
-					cout << "\n expected: l" << endl;
-					consumption = 0.0;
-				}
-			} while (cin.get() != 'l');
+			cout << "give in litres per 100km, XX.XXl" << endl;
+			cin >> consumption;
+			if (cin.get() != 'l') {
+				cout << "\n expected: l" << endl;
+				consumption = 0.0;
+				optionSCK = 0;
+			}
 		}
 		else if (optionSCK == 2) {
 			consumption = 9.0;
 		}
-	} while (optionSCK != 1 || optionSCK != 2);
+	} while (optionSCK != 1 && optionSCK != 2);
 }
 
 void Gas::resetGas()

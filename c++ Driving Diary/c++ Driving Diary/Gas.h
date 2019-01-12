@@ -18,4 +18,5 @@ private:
 	auto_ptr<Odometer> getODistance;
 };
 
+
 #endif
