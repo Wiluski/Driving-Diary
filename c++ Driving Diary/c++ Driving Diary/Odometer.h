@@ -17,23 +17,18 @@ public:
 	void resetOdometer();
 	void setStartKm();
 	void setEndKm();
+	int getDistance() const;
 	int getStartKm() const {
 		return startKm;
 	}
 	int getEndKm() const {
 		return endKm;
 	}
-	static int getEndLenght() {
-		return endLenght;
-	}
 
 private:
 	int startKm;
 	int endKm;
-	static int countO;
-	static int endLenght;
 	int startValue();
 };
 
-ostream &operator<<(ostream out, const Odometer &o);
 #endif

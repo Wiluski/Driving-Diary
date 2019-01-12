@@ -1,6 +1,6 @@
-﻿  Odometer.cpp
+﻿  Gas.cpp
+  TripHandling.cpp
   c++ Driving Diary.cpp
-d:\koulu\c++ projects\driving-diary\c++ driving diary\c++ driving diary\c++ driving diary.cpp(161): warning C4551: function call missing argument list
+d:\koulu\c++ projects\driving-diary\c++ driving diary\c++ driving diary\c++ driving diary.cpp(56): warning C4551: function call missing argument list
   Generating Code...
-d:\koulu\c++ projects\driving-diary\c++ driving diary\c++ driving diary\c++ driving diary.cpp(119): warning C4715: 'Odometer::startDrive': not all control paths return a value
   c++ Driving Diary.vcxproj -> D:\Koulu\c++ projects\Driving-Diary\c++ Driving Diary\Debug\c++ Driving Diary.exe

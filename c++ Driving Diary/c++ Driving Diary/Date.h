@@ -19,6 +19,5 @@ private:
 	int year;
 };
 
-ostream &operator<<(ostream &out, const Date &date0);
 
 #endif

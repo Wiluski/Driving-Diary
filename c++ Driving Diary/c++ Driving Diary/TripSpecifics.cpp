@@ -13,40 +13,34 @@ using namespace std;
 	return out;
 }*/
 
-
-
-
 void TripSpecifics::setStartLocation()
 {
-	cout << "where are you leaving from?: ";
-	cin >> startLocation;
-	cout << "You're leaving from: " << startLocation << endl;
-	cout << "Press 1: to continue and anything else to try again." << endl;
+	int optionSL = 0;
+	do {
+		cout << "where are you leaving from?: ";
+		cin >> startLocation;
+		cout << "You're leaving from: " << startLocation << endl;
+		cout << "Press 1: to continue and anything else to try again." << endl;
+	} while (optionSL != 1);
 }
 
 void TripSpecifics::setDestination()
 {
-	cout << "where are you going to?: ";
-	cin >> endLocation;
-	cout << "You're going to: " << endLocation << endl;
-	cout << "Press 1: to continue and anything else to try again." << endl;
+	int optionSD = 0;
+	do {
+		cout << "where are you going to?: ";
+		cin >> endLocation;
+		cout << "You're going to: " << endLocation << endl;
+		cout << "Press 1: to continue and anything else to try again." << endl;
+	} while (optionSD != 1);
 }
 
-void TripSpecifics::setStartTime()
+void TripSpecifics::resetTripSpecifics()
 {
-	cout << "Give the leaving time in format XXXX" << endl;
-	cin >> startTime;
-	cout << "Leaving time is: " << startTime << endl;
-	cout << "Press 1: to continue and anything else to try again." << endl;
+	startLocation.clear();
+	endLocation.clear();
 }
 
-void TripSpecifics::setEndTime()
-{
-	cout << "Give the leaving time in format XXXX" << endl;
-	cin >> endTime;
-	cout << "Leaving time is: " << endTime << endl;
-	cout << "Press 1: to continue and anything else to try again." << endl;
-}
 
 string TripSpecifics::getStartLocation() const
 {
@@ -56,14 +50,4 @@ string TripSpecifics::getStartLocation() const
 string TripSpecifics::getDestination() const
 {
 	return endLocation;
-}
-
-int TripSpecifics::getStartTime() const
-{
-	return startTime;
-}
-
-int TripSpecifics::getEndTime() const
-{
-	return endTime;
 }

@@ -17,7 +17,7 @@ void Date::setDate()
 		cout << "is this correct?" << endl;
 		cout << "Press 1 to continue and anything else to try again: " << endl;
 		cin >> optionSD;
-		if (optionSD != 0) {
+		if (optionSD != 1) {
 			resetDate();
 		}
 	} while (optionSD != 1);
@@ -45,8 +45,3 @@ void Date::resetDate()
 	year = 0;
 }
 
-ostream & operator<<(ostream & out, const Date & date0)
-{
-	out << date0.getDay << "/" << date0.getMonth << "/" << date0.getYear << endl;
-	return out;
-}
