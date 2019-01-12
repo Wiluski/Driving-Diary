@@ -23,9 +23,19 @@ void Date::setDate()
 	} while (optionSD != 1);
 }
 
-int Date::getDate() const
+int Date::getDay() const
 {
-	return 0;
+	return day;
+}
+
+int Date::getMonth() const
+{
+	return month;
+}
+
+int Date::getYear() const
+{
+	return year;
 }
 
 void Date::resetDate()
@@ -33,4 +43,10 @@ void Date::resetDate()
 	day = 0;
 	month = 0;
 	year = 0;
+}
+
+ostream & operator<<(ostream & out, const Date & date0)
+{
+	out << date0.getDay << "/" << date0.getMonth << "/" << date0.getYear << endl;
+	return out;
 }

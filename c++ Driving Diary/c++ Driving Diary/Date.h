@@ -9,12 +9,16 @@ public:
 
 	}
 	void setDate();
-	int getDate() const;
+	int getDay() const;
+	int getMonth() const;
+	int getYear() const;
 	void resetDate();
 private:
 	int day;
 	int month;
 	int year;
 };
+
+ostream &operator<<(ostream &out, const Date &date0);
 
 #endif

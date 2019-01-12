@@ -23,10 +23,6 @@ private:
 	string endLocation;
 	int startTime;
 	int endTime;
-	static int countTS;
-	static int leaveLenght;
-	static int destinationLenght;
-	static int timeLenght;
 };
 
 

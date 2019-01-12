@@ -13,10 +13,8 @@ using namespace std;
 	return out;
 }*/
 
-int TripSpecifics::countTS = 0;
-int TripSpecifics::leaveLenght = 0;
-int TripSpecifics::destinationLenght = 0;
-int TripSpecifics::timeLenght = 4;
+
+
 
 void TripSpecifics::setStartLocation()
 {
