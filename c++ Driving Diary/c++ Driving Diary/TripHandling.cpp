@@ -72,9 +72,7 @@ void TripHandling::deleteFile()
 	else {
 		resetFileName();
 		cout << "file names:" << endl;
-		while (!getFileName.eof()) {
-			cout << getFileName.rdbuf();
-		}
+		cout << getFileName.rdbuf();
 		cout << "\n which do you want to remove?:";
 		cin >> fileName;
 		if (remove(fileName.c_str()) != 0) {
@@ -143,9 +141,7 @@ void TripHandling::helpFind1()
 	else {
 		resetFileName();
 		cout << "file names:" << endl;
-		while (!getFileName.eof()) {
-			cout << getFileName.rdbuf();
-		}
+		cout << getFileName.rdbuf();
 		cout << "\nGive file name: " << endl;
 		cin >> fileName;
 		ifstream setFile(fileName);
@@ -186,16 +182,6 @@ ostream & operator<<(ostream & out, const TripSpecifics & ts)
 	}
 	return out;
 }
-
-/*ostream & operator<<(ostream & out, const Gas & g)
-{
-	if (g.getGas() != 0.0 || g.getConsumption() != 0.0) {
-		out << "Gas consumption during the trip was: " << g.getConsumption() << "l/100km" << endl;
-		out << "Meaning you used :" << g.getGas() << "litres" << endl;
-	}
-	return out;
-}*/
-
 
 
 ostream & operator<<(ostream & out, const TripHandling & input)
