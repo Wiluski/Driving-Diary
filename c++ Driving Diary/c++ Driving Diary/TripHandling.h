@@ -18,14 +18,14 @@ public:
 	void resetFileName();
 	void deleteFile();
 	int checkSave() const;
-private:
 	static int menuOption;
-	string fileName;
 	static const string distLoc;
 	static const string files;
+	static const string saveKilometers;
+private:
+	string fileName;
 	void helpSave();
 	void helpFind1();
-	void helpFind2();
 };
 ostream &operator<<(ostream &out, const TripHandling &input);
 ostream &operator<<(ostream &out, const Date &date0);

@@ -2,11 +2,13 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <conio.h>
 using namespace std;
 #include "TripHandling.h"
 
 const string TripHandling::distLoc = "distLoc.txt";
 const string TripHandling::files = "filenames.txt";
+const string TripHandling::saveKilometers = "kilometers.txt";
 int TripHandling::menuOption = 0;
 
 TripHandling::TripHandling(string fileName0, int day0, int month0, int year0, int startKm0, int endKm0, 
@@ -31,7 +33,8 @@ void TripHandling::saveMainFile(const TripHandling &save)
 		cout << "nothing to save" << endl;
 	}
 	else {
-		ofstream mainFile(fileName);
+		helpSave();
+		ofstream mainFile(fileName, ios_base::app);
 		mainFile << save;
 		mainFile.close();
 	}
@@ -58,13 +61,47 @@ void TripHandling::resetFileName()
 	fileName.clear();
 }
 
+void TripHandling::deleteFile()
+{
+	ifstream getFileName(files);
+	ifstream tmp("tmp.txt");
+	string read;
+	if (!getFileName.is_open()) {
+		cout << "No trips saved" << endl;
+	}
+	else {
+		resetFileName();
+		cout << "file names:" << endl;
+		while (!getFileName.eof()) {
+			cout << getFileName.rdbuf();
+		}
+		cout << "\n which do you want to remove?:";
+		cin >> fileName;
+		if (remove(fileName.c_str()) != 0) {
+			perror("error deleting file, returning to main menu");
+		}
+		else {
+			while (getline(getFileName, read)) {
+				read.replace(read.find(fileName), fileName.length(), "");
+			}
+			tmp.close();
+			getFileName.close();
+			remove(files.c_str());
+			rename("tmp.txt", files.c_str());
+			puts("succesful deletion");
+		}
+	}
+	tmp.close();
+	getFileName.close();
+}
+
 int TripHandling::checkSave() const
 {
 	if (getDay() == 0 && getEndKm() == 0 && getDestination().length() == 0) {
 		return 0;
 	}
 	else if(getDistance() != 0 && getStartLocation().length() != 0){
-		ofstream distLocFile(distLoc);
+		ofstream distLocFile(distLoc, ios_base::app);
 		distLocFile << getStartLocation() << " to " << getDestination() << endl;
 		distLocFile << getDistance() << "km" << endl;
 		distLocFile.close();
@@ -78,21 +115,22 @@ int TripHandling::checkSave() const
 void TripHandling::helpSave()
 {
 	ofstream fileNames;
+	ofstream kilometers;
 	int check = 0;
 	do {
 		cout << "Give trip a name *******.txt:" << endl;
 		cin >> fileName;
-		if (cin.get() != '.txt') {
-			cout << "expected '.txt'" << endl;
-		}
-		else {
-			cout << "file name is: " << fileName << endl;
-			cout << "press 1. to continue or anything else give another name: " << endl;
-			cin >> check;
-		}
+		cout << "file name is: " << fileName << endl;
+		cout << "press 1. to continue or anything else give another name: " << endl;
+		cin >> check;
+
 	} while (check != 1);
-	fileNames.open(files);
+	fileNames.open(files, ofstream::app);
+	kilometers.open(saveKilometers, ofstream::app);
 	fileNames << fileName << endl;
+	if (getEndKm() != 0) {
+		kilometers << "Kilometers at the end of the last trip: " << getEndKm() << "km" << endl;
+	}
 	fileNames.close();
 }
 
@@ -122,13 +160,6 @@ void TripHandling::helpFind1()
 	}
 }
 
-void TripHandling::helpFind2()
-{
-	auto_ptr<string> tmp(new string);
-	ifstream locAndDistance;
-	getline(locAndDistance, *tmp);
-
-}
 
 ostream & operator<<(ostream & out, const Date & date0)
 {

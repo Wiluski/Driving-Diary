@@ -24,11 +24,11 @@ public:
 	int getEndKm() const {
 		return endKm;
 	}
-
 private:
 	int startKm;
 	int endKm;
 	int startValue();
+	//static const string searchKm;
 };
 
 #endif

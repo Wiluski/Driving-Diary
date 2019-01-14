@@ -21,6 +21,7 @@ void TripSpecifics::setStartLocation()
 		cin >> startLocation;
 		cout << "You're leaving from: " << startLocation << endl;
 		cout << "Press 1: to continue and anything else to try again." << endl;
+		cin >> optionSL;
 	} while (optionSL != 1);
 }
 
@@ -32,6 +33,7 @@ void TripSpecifics::setDestination()
 		cin >> endLocation;
 		cout << "You're going to: " << endLocation << endl;
 		cout << "Press 1: to continue and anything else to try again." << endl;
+		cin >> optionSD;
 	} while (optionSD != 1);
 }
 

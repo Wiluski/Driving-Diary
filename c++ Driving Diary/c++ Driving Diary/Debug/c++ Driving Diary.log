@@ -1,3 +1,5 @@
-﻿  c++ Driving Diary.cpp
-d:\koulu\c++ projects\driving-diary\c++ driving diary\c++ driving diary\c++ driving diary.cpp(58): warning C4551: function call missing argument list
+﻿  TripHandling.cpp
+  c++ Driving Diary.cpp
+d:\koulu\c++ projects\driving-diary\c++ driving diary\c++ driving diary\c++ driving diary.cpp(87): warning C4551: function call missing argument list
+  Generating Code...
   c++ Driving Diary.vcxproj -> D:\Koulu\c++ projects\Driving-Diary\c++ Driving Diary\Debug\c++ Driving Diary.exe
