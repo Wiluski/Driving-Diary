@@ -4,13 +4,8 @@
 #include <iostream>
 
 class Odometer {
-	/*friend ostream &operator<<(ostream &out, const Odometer &r) {
-		out << "Kilometers at the start: " << r.startKm << "km" << endl;
-		out << "Kilometers at the end: " << r.endKm << "km" << endl;
-		out << "Distance driven in kilometers" << (r.endKm-r.startKm) << "km" << endl;
-		return out;
-	}*/
 public:
+	//constructor for odometer
 	Odometer(int startKm0 = 0, int endstartKm0 = 0)
 		: startKm(startKm0), endKm(endstartKm0) {
 	}
@@ -18,9 +13,11 @@ public:
 	void setStartKm();
 	void setEndKm();
 	int getDistance() const;
+	//returns the km at start
 	int getStartKm() const {
 		return startKm;
 	}
+	//return kilometers at the end
 	int getEndKm() const {
 		return endKm;
 	}
@@ -28,7 +25,6 @@ private:
 	int startKm;
 	int endKm;
 	int startValue();
-	//static const string searchKm;
 };
 
 #endif

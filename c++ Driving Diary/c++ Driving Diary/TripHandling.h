@@ -6,6 +6,7 @@
 #include "TripSpecifics.h"
 #include "Gas.h"
 
+//class which uses rest of the classes for simple access
 class TripHandling : public Date, public Odometer, public TripSpecifics , public Gas{
 	
 public:
