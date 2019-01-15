@@ -1,7 +1,0 @@
-14/1/2019
-Trip from (Espoo) to (Tapiola)
-Kilometers at the start of the trip: 0km
-Kilometers at the end of the trip: 20000km
-Distance driven: 20000km
-Gas consumption during the trip was: 9l/100km
-Meaning you used:10.1litres

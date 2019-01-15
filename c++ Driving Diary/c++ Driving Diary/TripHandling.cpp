@@ -10,8 +10,9 @@ using namespace std;
 const string TripHandling::distLoc = "distLoc.txt";
 const string TripHandling::files = "filenames.txt";
 const string TripHandling::saveKilometers = "kilometers.txt";
-//integer which is utilized in the main menu
+//integers which are utilized in the main menu
 int TripHandling::menuOption = 0;
+int TripHandling::saveOption = 0;
 
 //constructor for the class which saves to files
 TripHandling::TripHandling(string fileName0, int day0, int month0, int year0, int startKm0, int endKm0, 
@@ -22,7 +23,7 @@ TripHandling::TripHandling(string fileName0, int day0, int month0, int year0, in
 }
 
 //copy constructor
-TripHandling::TripHandling(const TripHandling & th) : fileName(th.fileName), Date(th), Odometer(th), TripSpecifics(th)
+TripHandling::TripHandling(const TripHandling & th) : fileName(th.fileName), Date(th), Odometer(th), TripSpecifics(th), Gas(th)
 {
 }
 
@@ -158,7 +159,7 @@ void TripHandling::helpSave()
 	} while (check != 1);
 	//saves the name of the file and the amount of kilometers if they are accessible
 	fileNames.open(files, ofstream::app);
-	kilometers.open(saveKilometers, ofstream::app);
+	kilometers.open(saveKilometers);
 	fileNames << fileName << endl;
 	if (getEndKm() != 0) {
 		kilometers << "Kilometers at the end of the last trip: " << getEndKm() << "km" << endl;
@@ -226,13 +227,21 @@ ostream & operator<<(ostream & out, const TripSpecifics & ts)
 	return out;
 }
 
+//output operator for the gas
+ostream & operator<<(ostream & out, const Gas & g)
+{
+	if (g.getConsumption() != 0) {
+		cout << "gas consumption per 100km: " << g.getConsumption() << "l/100km" << endl;
+		cout << "gas bought: " << g.getGas() << "l" << endl;
+	}
+	return out;
+}
+
 //output operator to print all the data
 ostream & operator<<(ostream & out, const TripHandling & input)
 {
-	out << (Date)input << (TripSpecifics)input << (Odometer)input;
-	if (input.Odometer::getDistance() != 0) {
-		out << "Gas consumption during the trip was: " << input.getConsumption() << "l/100km" << endl;
-		out << "Meaning you used:" << input.getGas() << "litres" << endl;
-	}
+	out << (Date)input << (TripSpecifics)input << (Odometer)input << (Gas)input;
+	//calculates the amount of gas used during the trip
+	out << "Meaning you used:" << (input.getGas() - ((double)input.getDistance()/100*input.getConsumption())) << "litres" << endl;
 	return out;
 }

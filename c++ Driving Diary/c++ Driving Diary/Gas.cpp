@@ -4,9 +4,12 @@ using namespace std;
 #include "Gas.h"
 
 //constructor for gas
-Gas::Gas(double litre0, double consumption0, int startKm0, int endKm0) : litre(litre0), consumption(consumption0),
-getODistance(new Odometer(startKm0, endKm0))
+Gas::Gas(double litre0, double consumption0) : litre(litre0), consumption(consumption0) 
 {
+}
+
+Gas::Gas(const Gas &g) : litre(g.litre), consumption(g.consumption){
+
 }
 
 //function for determening if gas was bought during trip
@@ -14,24 +17,23 @@ void Gas::setGas()
 {
 	//int for verifying user input
 	int optionSG = 0;
+	int optionSG2 = 0;
 	//loops until correct input has been received
 	do {
 		cout << "did you buy gas?" << endl;
 		cout << "1. Yes, 2. No" << endl;
 		cin >> optionSG;
 		if (optionSG == 1) {
-			cout << "Give in litres xx.xxl" << endl;
+			cout << "Give litres xx.xx" << endl;
 			cout << "How much gas did you buy?: " << endl;
 			//reads the input for litres bought
 			cin >> litre;
-			//if the input doesn't include l (litres), the loop continues
-			if (cin.get() != 'l') {
-				cout << "\n expected 'l'\n";
+			cout << "you wrote: " << litre << endl;
+			cout << "press 1. to continue or anything else to try again" << endl;
+			cin >> optionSG2;
+			if (optionSG2 != 1) {
 				optionSG = 0;
 			}
-			//calculates the litres depending on distance and consumption
-			//uses the autopointer for Odometer(getODistance) to get the distance
-		litre = litre - ((getODistance->getDistance() / 100) * consumption);
 		}
 	} while (optionSG != 1 && optionSG != 2);
 }

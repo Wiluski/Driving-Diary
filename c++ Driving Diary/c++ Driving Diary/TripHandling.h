@@ -20,6 +20,7 @@ public:
 	void deleteFile();
 	int checkSave() const;
 	static int menuOption;
+	static int saveOption;
 	static const string distLoc;
 	static const string files;
 	static const string saveKilometers;
@@ -32,7 +33,7 @@ ostream &operator<<(ostream &out, const TripHandling &input);
 ostream &operator<<(ostream &out, const Date &date0);
 ostream &operator<<(ostream &out, const Odometer &o);
 ostream &operator<<(ostream &out, const TripSpecifics &ts);
-//ostream &operator<<(ostream &out, const Gas &g);
+ostream &operator<<(ostream &out, const Gas &g);
 
 
 #endif // !SAVETRIP_H

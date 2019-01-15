@@ -6,6 +6,7 @@
 #include <string>
 using namespace std;
 
+
 //resets the values for starting and end kilometers
 void Odometer::resetOdometer()
 {
@@ -35,7 +36,7 @@ void Odometer::setStartKm() {
 			cout << "give kilometers: ";
 			//reads the value for kilometers at start
 			cin >> startKm;
-			cout << "You wrote: " << startKm << endl;
+			cout << "You wrote: " << startKm << "km" << endl;
 			cout << "press 1. to continue anything else to try again:";
 			cin >> optionLeave;
 			//breaks the loop if correct input is received
@@ -55,6 +56,9 @@ void Odometer::setEndKm()
 		cout << "Give the kilometers: ";
 		//gets the kilometers at the end
 		cin >> endKm;
+		if (endKm > startKm) {
+			cout << "Ending kilometers have to be bigger than at start" << endl;
+		}
 		cout << "your kilometers: ";
 		cout << endKm << "km" << endl;
 		cout << "press 1. to continue anything else to try again:";

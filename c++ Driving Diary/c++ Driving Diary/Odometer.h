@@ -9,6 +9,9 @@ public:
 	Odometer(int startKm0 = 0, int endstartKm0 = 0)
 		: startKm(startKm0), endKm(endstartKm0) {
 	}
+	Odometer(const Odometer &o) : startKm(o.startKm), endKm(o.endKm) {
+
+	}
 	void resetOdometer();
 	void setStartKm();
 	void setEndKm();
@@ -21,6 +24,7 @@ public:
 	int getEndKm() const {
 		return endKm;
 	}
+
 private:
 	int startKm;
 	int endKm;

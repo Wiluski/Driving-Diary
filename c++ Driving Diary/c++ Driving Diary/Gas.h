@@ -6,7 +6,8 @@
 class Gas{
 	
 public:
-	Gas(double litre0 = 0.0, double consumption0 = 0.0, int startKm0 = 0, int endKm0 = 0);
+	Gas(double litre0 = 0.0, double consumption0 = 0.0);
+	Gas(const Gas &g);
 	void setGas();
 	void setConsumption();
 	void resetGas();
@@ -15,7 +16,6 @@ public:
 private:
 	double litre;
 	double consumption;
-	auto_ptr<Odometer> getODistance;
 };
 
 

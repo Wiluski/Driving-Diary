@@ -1,2 +1,7 @@
-﻿  Odometer.cpp
+﻿  Date.cpp
+  Gas.cpp
+  TripHandling.cpp
+  TripSpecifics.cpp
+  c++ Driving Diary.cpp
+  Generating Code...
   c++ Driving Diary.vcxproj -> D:\Koulu\c++ projects\Driving-Diary\c++ Driving Diary\Debug\c++ Driving Diary.exe
