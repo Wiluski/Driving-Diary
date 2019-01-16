@@ -241,7 +241,9 @@ ostream & operator<<(ostream & out, const Gas & g)
 ostream & operator<<(ostream & out, const TripHandling & input)
 {
 	out << (Date)input << (TripSpecifics)input << (Odometer)input << (Gas)input;
-	//calculates the amount of gas used during the trip
-	out << "Meaning you used:" << (input.getGas() - ((double)input.getDistance()/100*input.getConsumption())) << "litres" << endl;
+	//calculates the amount of gas left from the trip
+	out << "Meaning the amount of gas left from obtained during the trip: "
+	<< (input.getGas() - ((double)input.getDistance() / 100 * input.getConsumption())) << "litres" << endl;
+	
 	return out;
 }
